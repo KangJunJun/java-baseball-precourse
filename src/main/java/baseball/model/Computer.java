@@ -13,7 +13,7 @@ public class Computer {
     }
 
     private Set<Integer> generateBaseballNumber(){
-        Set<Integer> digitSet = new HashSet<>();
+        Set<Integer> digitSet = new LinkedHashSet<>();
 
         while (digitSet.size() < 3) {
             digitSet.add(getRandomNumber());
