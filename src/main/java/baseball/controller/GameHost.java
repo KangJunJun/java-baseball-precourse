@@ -1,5 +1,8 @@
 package baseball.controller;
 import baseball.model.Computer;
+
+import java.util.List;
+
 import static baseball.view.ConsoleIO.*;
 
 public class GameHost {
@@ -11,7 +14,21 @@ public class GameHost {
 
     public void startGame() {
         computer.initBaseballNumber();
+        tryPlay();
+    }
 
-        String input = inputAnswer();
+    private void tryPlay(){
+        List<Integer> input = inputAnswer();
+        computer.calculateScore(input);
+        printResult(computer.getStrike(), computer.getBall());
+
+        if (computer.isWrong())
+        {
+            tryPlay();
+            return;
+        }
+
+        //Todo: New Game
+
     }
 }

@@ -1,18 +1,38 @@
 package baseball.view;
-import camp.nextstep.edu.missionutils.Console;
+
+import static baseball.type.Score.*;
+import static camp.nextstep.edu.missionutils.Console.readLine;
+import java.util.List;
 import static baseball.common.Validator.*;
+import static baseball.common.Util.*;
 
 public class ConsoleIO {
     private static final String INPUT_SENTENCE = "숫자를 입력해주세요 : ";
+    private static final String CORRECT_SENTENCE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
 
-    public static String inputAnswer() {
+    public static List<Integer> inputAnswer() {
         System.out.print(INPUT_SENTENCE);
-        String input = Console.readLine();
+        String input = readLine();
 
         if (!isValidBaseballNumber(input)) {
             throw new IllegalArgumentException();
         }
 
-        return input;
+        return convertToList(input);
+    }
+
+    public  static  void printResult(int strike, int ball){
+        String resultMessage = "";
+        if (strike == 3) {
+            System.out.println(CORRECT_SENTENCE);
+            return;
+        }
+        if (strike == 0 && ball == 0) {
+            System.out.println(NOTHING.getName());
+            return;
+        }
+        if (ball != 0) resultMessage += ball + BALL.getName() + " ";
+        if (strike != 0) resultMessage += strike + STRIKE.getName();
+        System.out.println(resultMessage);
     }
 }
