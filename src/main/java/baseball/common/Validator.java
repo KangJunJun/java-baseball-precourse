@@ -19,4 +19,9 @@ public class Validator {
         Set<String> inputSet = new HashSet<>(Arrays.asList(inputArray));
         return inputSet.size() == 3;
     }
+
+    public static boolean isValidRestartFlag(String input) {
+        Pattern numberPattern = Pattern.compile("^[1-2]{1}$");
+        return numberPattern.matcher(input).matches();
+    }
 }

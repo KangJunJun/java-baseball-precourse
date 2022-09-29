@@ -9,6 +9,7 @@ import static baseball.common.Util.*;
 public class ConsoleIO {
     private static final String INPUT_SENTENCE = "숫자를 입력해주세요 : ";
     private static final String CORRECT_SENTENCE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+    private static final String RESTART_SENTENCE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 
     public static List<Integer> inputAnswer() {
         System.out.print(INPUT_SENTENCE);
@@ -34,5 +35,16 @@ public class ConsoleIO {
         if (ball != 0) resultMessage += ball + BALL.getName() + " ";
         if (strike != 0) resultMessage += strike + STRIKE.getName();
         System.out.println(resultMessage);
+    }
+
+    public static String inputRestart() {
+        System.out.println(RESTART_SENTENCE);
+        String input = readLine();
+
+        if (!isValidRestartFlag(input)) {
+            throw new IllegalArgumentException();
+        }
+
+        return input;
     }
 }

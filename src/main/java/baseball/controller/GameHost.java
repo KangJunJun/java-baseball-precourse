@@ -1,6 +1,5 @@
 package baseball.controller;
 import baseball.model.Computer;
-
 import java.util.List;
 
 import static baseball.view.ConsoleIO.*;
@@ -27,8 +26,11 @@ public class GameHost {
             tryPlay();
             return;
         }
+        restartGame();
+    }
 
-        //Todo: New Game
-
+    private void restartGame(){
+        String input = inputRestart();
+        if(input.equals("1")) startGame();
     }
 }
