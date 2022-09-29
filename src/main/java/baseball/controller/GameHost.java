@@ -26,6 +26,7 @@ public class GameHost {
             tryPlay();
             return;
         }
+        printComplete();
         restartGame();
     }
 

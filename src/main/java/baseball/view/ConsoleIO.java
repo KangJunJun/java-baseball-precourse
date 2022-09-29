@@ -22,19 +22,20 @@ public class ConsoleIO {
         return convertToList(input);
     }
 
-    public  static  void printResult(int strike, int ball){
+    public  static  void printResult(int strike, int ball) {
         String resultMessage = "";
-        if (strike == 3) {
-            System.out.println(CORRECT_SENTENCE);
-            return;
-        }
         if (strike == 0 && ball == 0) {
             System.out.println(NOTHING.getName());
             return;
         }
         if (ball != 0) resultMessage += ball + BALL.getName() + " ";
         if (strike != 0) resultMessage += strike + STRIKE.getName();
+
         System.out.println(resultMessage);
+    }
+
+    public  static  void printComplete() {
+        System.out.println(CORRECT_SENTENCE);
     }
 
     public static String inputRestart() {

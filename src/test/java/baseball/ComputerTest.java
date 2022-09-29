@@ -42,6 +42,7 @@ public class ComputerTest {
         List<Integer> test2 = convertToList("276");
         List<Integer> test3 = convertToList("789");
         List<Integer> test4 = convertToList("586");
+        List<Integer> test5 = convertToList("526");
 
         computer.calculateScore(test1);
         assertThat(computer.getStrike()).isEqualTo(0);
@@ -57,6 +58,10 @@ public class ComputerTest {
 
         computer.calculateScore(test4);
         assertThat(computer.getStrike()).isEqualTo(2);
+        assertThat(computer.getBall()).isEqualTo(0);
+
+        computer.calculateScore(test5);
+        assertThat(computer.getStrike()).isEqualTo(3);
         assertThat(computer.getBall()).isEqualTo(0);
     }
 
